@@ -36,7 +36,7 @@ Route::prefix('api/v1')->group(function () {
 Route::group(['middleware' => ['jwt.verify', 'cors']], function () {
     Route::get('/', [HomeController::class, 'index'])->name('/');
     Route::prefix('api/v1')->group(function () {
-        Route::post('getdata', [UserLevelController::class, 'getuserdata'])->name('insert');
+        Route::post('getdata', [UserLevelController::class, 'getuserdata'])->name('getdata');
         Route::prefix('disposisi')->group(function () {
             Route::get('currentdisposisi', [DisposisiController::class, 'getcurrentdisposisi'])->name('getcurrent');
             Route::get('list', [DisposisiController::class, 'index'])->name('list');
