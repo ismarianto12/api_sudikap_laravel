@@ -57,7 +57,7 @@ class PegawaiController extends Controller
         }
         $query->addSelect(DB::raw("CONCAT('" . url('pegawai/edit/') . "', pegawai.id) as edit_url"));
         $query->addSelect(DB::raw("CONCAT('<button type=\"button\" class=\"btn btn-danger btn-xs delete\" onclick=\"return hapus(', pegawai.id, ')\"><i class=\"fa fa-trash\"></i></button>') as delete_button"));
-        $dataPegawai = $query->paginate($page);
+        $dataPegawai = $query->paginate(15);
         return $dataPegawai;
     }
     /**
